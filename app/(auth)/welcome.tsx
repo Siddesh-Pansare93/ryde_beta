@@ -20,7 +20,7 @@ const welcome = () => {
                 onPress={() => router.replace("/(auth)/signup")}
                 className='w-full flex justify-end items-end p-5'
             >
-                <Text className='text-black text-md font-JakartaBold p-5'>Skip</Text>
+                <Text className='text-black text-md font-JakartaBold p-5'>Skip {'>'} </Text>
             </TouchableOpacity >
 
 
