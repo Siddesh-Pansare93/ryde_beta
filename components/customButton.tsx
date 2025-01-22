@@ -9,11 +9,11 @@ const getBgVariantStyle = (bgVariant: ButtonProps["bgVariant"]) => {
             return 'bg-gray-500'
             
         case 'danger':
-            return 'bg-gray-500'
+            return 'bg-red-500'
          
 
         case 'success':
-            return 'bg-gray-500'
+            return 'bg-green-500'
             
         case 'outline' : 
         return 'bg-transparent border-neutral-300 border-[0.5px]'
@@ -50,7 +50,7 @@ const CustomButton = ({
 }: ButtonProps) => {
     return (
         <TouchableOpacity onPress={onPress} 
-            className={`${className} rounded-full flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 w-1/2 p-3 border-2 border-gray-500 ${getBgVariantStyle(bgVariant)}`}
+            className={`${className} rounded-full flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 w-full p-3 border border-neutral-200 ${getBgVariantStyle(bgVariant)}`}
         >
             {IconLeft && <IconLeft />}
             <Text className='font-semibold'>{title}</Text>
