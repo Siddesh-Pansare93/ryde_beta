@@ -55,7 +55,7 @@ const welcome = () => {
             <CustomButton 
             title={isLastScreen ? "Get Started" : "Next"} 
             onPress={() => isLastScreen ? router.replace("/(auth)/signup") : swiperRef.current?.scrollBy(1)}
-            
+            className='w-[50%]'
             />
             <Text className='text-black'>{isLastScreen}</Text>
 
