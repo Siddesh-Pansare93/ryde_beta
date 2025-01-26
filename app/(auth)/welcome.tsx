@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Image, StatusBar } from 'react-native'
 import React, { useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { router } from 'expo-router'
@@ -14,8 +14,11 @@ const welcome = () => {
 
     
     return (
-        <SafeAreaView className='flex h-full items-center justify-between pb-10  bg-white'>
-
+        <SafeAreaView className='flex h-full items-center justify-between pb-10  bg-[#E2e8f0]'>
+            <StatusBar 
+            barStyle="dark-content"
+            backgroundColor="#000"
+            /> 
             <TouchableOpacity
                 onPress={() => router.replace("/(auth)/signup")}
                 className='w-full flex justify-end items-end p-5'
