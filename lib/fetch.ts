@@ -13,7 +13,7 @@ export const fetchAPI = async (url: string, options?: RequestInit) => {
     }
 };
 
-export const useFetch = (url: string, options?: RequestInit) => {
+export const useFetch =     (url: string, options?: RequestInit) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
