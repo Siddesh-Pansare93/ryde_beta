@@ -8,6 +8,7 @@ import OAuth from '@/components/OAuth'
 import { useSignUp } from '@clerk/clerk-expo'
 import { useRouter } from 'expo-router'
 import Modal from "react-native-modal";
+import { fetchAPI } from '@/lib/fetch'
 
 
 const signin = () => {
@@ -69,6 +70,18 @@ const onVerifyPress = async () => {
     // and redirect the user
     if (signUpAttempt.status === 'complete') {
       //TODO : Create a User in database
+      const response = await fetchAPI("/(api)/user" , {
+        method : "POST" , 
+        body : JSON.stringify({
+          name : form.name  , 
+          email  :form.email , 
+          clerkId : signUpAttempt.createdUserId
+        })
+      })
+
+      if(response.error){
+        throw new Error("Failed to registered user in database : " , response.error)
+      }
 
       await setActive({ session: signUpAttempt.createdSessionId })
       setVerification({
@@ -91,7 +104,7 @@ const onVerifyPress = async () => {
       error : err.errors[0].longmessage
     })
     console.log(err)
-    // Alert.alert("Error : " , err.erros[0].message)
+    Alert.alert("Error : " , err.erros[0].message)
   }
 }
 
